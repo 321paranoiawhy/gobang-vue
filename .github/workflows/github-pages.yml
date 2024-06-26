@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ matrix.node }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       # Install all dependencies needed to build our documentation
       - name: Install dependencies
@@ -52,7 +52,7 @@ jobs:
         # https://nuxt.com/deploy/github-pages
         # 未使用自定义域名时, 须配置 NUXT_APP_BASE_URL 环境变量值
         # 同 https://<user>.github.io/<repository>/ 中的 /<repository>/
-        run: NUXT_APP_BASE_URL=/gobang/ pnpm build --preset github_pages
+        run: NUXT_APP_BASE_URL=/gobang-vue/ pnpm build --preset github_pages
 
       # Pushes the files to a branch called "gh-pages" that will be used as deployment branch
       - name: Deploy

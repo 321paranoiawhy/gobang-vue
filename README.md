@@ -2,7 +2,7 @@
 
 本项目为五子棋 `Web` 版前端实现, 使用 [Nuxt3 Starter](https://github.com/nuxt/starter/tree/v3) 模板
 
-[在线试玩](https://321paranoiawhy.github.io/gobang/)
+[在线试玩](https://321paranoiawhy.github.io/gobang-vue/)
 
 ## 技术栈
 
