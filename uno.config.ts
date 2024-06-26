@@ -13,7 +13,12 @@ export default defineConfig({
   // ...UnoCSS options
   presets: [presetUno(), presetAttributify(), presetTypography(), presetWebFonts()],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-  shortcuts: [['flex-center', 'flex items-center justify-center']],
+  shortcuts: [
+    ['flex-center', 'flex items-center justify-center'],
+    {
+      'absolute-center': 'absolute top-0 bottom-0 left-0 right-0 m-auto'
+    }
+  ],
   theme: {
     colors: {
       primary: {

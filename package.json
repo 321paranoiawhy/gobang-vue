@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "gobang",
   "private": true,
   "type": "module",
   "scripts": {
@@ -21,6 +21,8 @@
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.9",
+    "element-plus": "^2.7.6",
     "prettier": "^3.3.2",
     "sass": "^1.77.6"
   }
