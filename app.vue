@@ -17,8 +17,10 @@ if (process.client) {
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <!--  <div>-->
-  <!--    <NuxtRouteAnnouncer />-->
-  <!--    <NuxtWelcome />-->
-  <!--  </div>-->
 </template>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+</style>

@@ -24,7 +24,7 @@
 # 安装依赖
 pnpm i
 
-# 开发, 浏览器内输入 http://localhost:3000/
+# 开发, 浏览器内输入 http://localhost:1234/
 pnpm dev
 
 # 打包, 打包产物位于根目录 .output 文件夹内

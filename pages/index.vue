@@ -21,8 +21,10 @@ const state = ref<ChessEnum[][]>(
 // 默认黑方先手
 const isBlackTurn = ref(true);
 
+const fps = useFps();
+
 // 落子
-const onAddChess = (rowIndex: number, columnIndex: number) => {
+const onPutChess = (rowIndex: number, columnIndex: number) => {
   const currentState = state.value[rowIndex][columnIndex];
   // 已落子
   if (currentState !== ChessEnum.None) {
@@ -47,8 +49,10 @@ const checkWinner = () => {
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative w-[1600px] h-[1600px]">
     <chess-layout class="absolute!"></chess-layout>
+
+    <div class="absolute top-[50px] right-[50px] c-white">FPS: {{ fps }}</div>
 
     <!-- 落棋识别区域 -->
     <template v-for="(row, rowIndex) in state" :key="rowIndex">
@@ -57,20 +61,20 @@ const checkWinner = () => {
         :key="rowIndex + columnIndex"
         class="w-[100px] h-[100px] z-1 absolute cursor-pointer flex-center"
         :class="data !== ChessEnum.None && 'cursor-not-allowed'"
-        @click="onAddChess(rowIndex, columnIndex)"
+        @click="onPutChess(rowIndex, columnIndex)"
         :style="{top: `${(rowIndex + 1) * 100 - 50}px`, left: `${(columnIndex + 1) * 100 - 50}px`}"
       >
         <img
           v-if="data === ChessEnum.Black"
           src="/assets/images/black-chess.svg"
           alt="black chess"
-          class="black-chess w-[80px] h-[80px]"
+          class="black-chess w-[60px] h-[60px]"
         />
         <img
           v-else-if="data === ChessEnum.White"
           src="/assets/images/white-chess.svg"
           alt="white chess"
-          class="white-chess w-[80px] h-[80px]"
+          class="white-chess w-[60px] h-[60px]"
         />
         <!--        <img-->
         <!--          v-if="data === ChessEnum.Black"-->

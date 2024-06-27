@@ -65,7 +65,7 @@ const COLUMN_NAMES = Alphabet.slice(0, COLUMNS.value + 1);
         <div
           v-for="columnIndex in 14"
           :key="rowIndex + columnIndex"
-          class="chess-cell-item w-[100px] h-[100px] box-border flex-center"
+          class="chess-cell-item w-[100px] h-[100px] flex-center"
         >
           {{ 14 * (rowIndex - 1) + columnIndex }}
         </div>
