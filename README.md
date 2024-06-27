@@ -4,6 +4,8 @@
 
 [在线试玩](https://321paranoiawhy.github.io/gobang-vue/)
 
+五子棋含禁手规则英文为 `Gomoku`, 无禁手则英文为 `Renju`
+
 ## 技术栈
 
 - `Vue 3`

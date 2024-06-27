@@ -5,7 +5,7 @@ const COLUMNS = ref(14);
 const WIDTH = ref(100);
 const HEIGHT = ref(100);
 
-// 中元及四星
+// 中元及四星位
 const stars = [
   [3, 3],
   [3, 11],
@@ -67,11 +67,11 @@ const COLUMN_NAMES = Alphabet.slice(0, COLUMNS.value + 1);
           :key="rowIndex + columnIndex"
           class="chess-cell-item w-[100px] h-[100px] flex-center"
         >
-          {{ 14 * (rowIndex - 1) + columnIndex }}
+          <!-- {{ 14 * (rowIndex - 1) + columnIndex }} -->
         </div>
       </template>
 
-      <!-- 中元及四星 -->
+      <!-- 中元及四星位 -->
       <div
         v-for="[x, y] in stars"
         :key="x + y"
