@@ -1,15 +1,12 @@
 <script setup lang="ts">
+import {ChessEnum} from '~/types/chess';
+import ChessboardDom from '~/components/layouts/chessboard-dom.vue';
+
 const ROWS = ref(14); // 纵向 14 格
 const COLUMNS = ref(14); // 横向 14 格
 // TODO 尺寸自适应
 const WIDTH = ref(100);
 const HEIGHT = ref(100);
-
-enum ChessEnum {
-  None,
-  Black,
-  White
-}
 
 // 15 x 15 交叉点状态
 const state = ref<ChessEnum[][]>(
@@ -70,13 +67,20 @@ const checkWinner = () => {
 
 <template>
   <!--  TODO 避免重渲染 -->
+  <!-- canvas 版水印 -->
   <el-watermark
     :key="useChess.withWatermark"
-    :content="useChess.withWatermark ? ['Gobang', 'Ninja'] : ''"
+    :content="useChess.withWatermark ? ['Gobang'] : ''"
     :font="watermarkFontStyle"
   >
-    <div class="relative w-[1600px] h-[1600px]">
-      <chess-layout class="absolute!"></chess-layout>
+    <h1 class="text-center">五子棋 (Gobang)</h1>
+    <div class="flex justify-center gap-2 mb-4">
+      <el-button type="primary" @click=""><nuxt-link to="/forbidden">禁手规则</nuxt-link></el-button>
+      <el-button type="primary" @click=""><nuxt-link to="/canvas-version">Canvas Version</nuxt-link></el-button>
+    </div>
+
+    <div class="relative w-[1600px] h-[1600px] mx-auto">
+      <chessboard-dom class="absolute!"></chessboard-dom>
 
       <div class="absolute top-[50px] right-[50px] c-white">FPS: {{ fps }}</div>
 
@@ -85,8 +89,8 @@ const checkWinner = () => {
         <div
           v-for="(data, columnIndex) in row"
           :key="rowIndex + columnIndex"
-          class="w-[100px] h-[100px] z-1 absolute cursor-pointer flex-center"
-          :class="data !== ChessEnum.None && 'cursor-not-allowed'"
+          class="recognize-zone w-[100px] h-[100px] z-1 absolute cursor-pointer flex-center"
+          :class="data === ChessEnum.None ? 'can-put-chess' : 'cursor-not-allowed'"
           @click="onPutChess(rowIndex, columnIndex)"
           :style="{top: `${(rowIndex + 1) * 100 - 50}px`, left: `${(columnIndex + 1) * 100 - 50}px`}"
         >
@@ -114,3 +118,15 @@ const checkWinner = () => {
     </div>
   </el-watermark>
 </template>
+
+<style scoped lang="scss">
+.recognize-zone {
+  &.can-put-chess {
+    transition: border-width ease-in-out 0.3s;
+    &:hover {
+      //border: 1px solid theme('colors.primary.black');
+      border: 1px solid #b5b5b5;
+    }
+  }
+}
+</style>
