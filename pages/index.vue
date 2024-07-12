@@ -123,15 +123,17 @@ const getLeftDiagonal = (rowIndex: number, columnIndex: number): ChessEnum[] => 
   // 中间点 [i, i + columnIndex - rowIndex]
   // 当前点 [rowIndex, columnIndex]
   // 中间点 [j + rowIndex - columnIndex, j]
-  // 右下角顶点 [x, 14] // x- rowIndex = 14 - columnIndex => x = 14 + rowIndex - columnIndex
+  // 右下角顶点 [x, 14] // x - rowIndex = 14 - columnIndex => x = 14 + rowIndex - columnIndex
 
   const result = [];
 
+  // 左上角
   for (let i = 0; i < rowIndex; i++) {
     console.log(i, i + columnIndex - rowIndex);
     result.push(state.value[i][i + columnIndex - rowIndex]);
   }
 
+  // 右下角
   for (let j = columnIndex; j <= 14; j++) {
     console.log(j + rowIndex - columnIndex, j);
     result.push(state.value[j + rowIndex - columnIndex][j]);
@@ -141,22 +143,24 @@ const getLeftDiagonal = (rowIndex: number, columnIndex: number): ChessEnum[] => 
 };
 
 const getRightDiagonal = (rowIndex: number, columnIndex: number): ChessEnum[] => {
-  // 右上角顶点 [0, y] // rowIndex - 0 = columnIndex - y => y = columnIndex - rowIndex
-  // 中间点 [i, i + columnIndex - rowIndex]
+  // 右上角顶点 [x, 0] // rowIndex - x = columnIndex - 0 => x = rowIndex - columnIndex
+  // 中间点 [i + rowIndex - columnIndex, i]
   // 当前点 [rowIndex, columnIndex]
-  // 中间点 [j + rowIndex - columnIndex, j]
-  // 左下角顶点 [x, 14] // x- rowIndex = 14 - columnIndex => x = 14 + rowIndex - columnIndex
+  // 中间点 [j, j + columnIndex - rowIndex]
+  // 左下角顶点 [14, y] // 14 - rowIndex = y - columnIndex => y = 14 + columnIndex - rowIndex
 
   const result = [];
 
-  for (let i = 0; i < rowIndex; i++) {
-    console.log(i, i + columnIndex - rowIndex);
-    result.push(state.value[i][i + columnIndex - rowIndex]);
+  // 右上角
+  for (let i = 0; i < columnIndex; i++) {
+    console.log(i + rowIndex - columnIndex, i);
+    result.push(state.value[i + rowIndex - columnIndex][i]);
   }
 
-  for (let j = columnIndex; j <= 14; j++) {
-    console.log(j + rowIndex - columnIndex, j);
-    result.push(state.value[j + rowIndex - columnIndex][j]);
+  // 左下角
+  for (let j = rowIndex; j <= 14; j++) {
+    console.log(j, j + columnIndex - rowIndex);
+    result.push(state.value[j][j + columnIndex - rowIndex]);
   }
 
   return result;
