@@ -2,8 +2,10 @@
   "name": "gobang",
   "private": true,
   "type": "module",
+  "main": "dist-electron/main.js",
   "scripts": {
     "build": "nuxt build",
+    "build:electron": "nuxt build --prerender && electron-builder",
     "dev": "nuxt dev --port 5173",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

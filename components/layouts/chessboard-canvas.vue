@@ -41,7 +41,6 @@ onMounted(() => {
 // 绘制棋盘
 const drawChessBoard = (options: TDrawChessBoardOptions) => {
   const {size, outerColor, innerColor} = options;
-  console.log(options);
 
   // 水平轴线
   for (let row = 0; row <= ROWS.value; row++) {

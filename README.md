@@ -42,6 +42,9 @@ pnpm build
 - [gobang 在线试玩 - sky172839465](<(https://sky172839465.github.io/gobang/)>)
 - [五子棋 AI](https://github.com/lihongxun945/gobang)
 - [五子棋 AI 在线试玩](http://gobang2.light7.cn/)
+- [javascript-gobang](https://github.com/surmon-china/javascript-gobang)
+
+  纯原生 `HTML`、无框架, 提供 `dom` 和 `canvas` 两种版本, 可重置游戏、悔棋和撤销悔棋
 
 ## 游戏规则
 
@@ -119,3 +122,9 @@ pnpm build
 - 对局自动保存记录, 支持导出、分享对局信息、回放
 - 支持嵌入至其他网站
 - 游戏辅助线提示 (连三等) `VIP Only`
+- 黑白双方各自计时
+- 悔棋、撤销悔棋、最大悔棋次数、解锁无限悔棋次数
+- 保存当前状态图片 (jpg/png/svg)
+- 棋局 gif、支持设定 gif 每帧速度 (默认 3 秒钟)
+- 集成多种不同的 `AI` 引擎
+- 禁手规则示意图绘制 (使用 `d3.js`)

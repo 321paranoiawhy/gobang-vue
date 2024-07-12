@@ -27,11 +27,11 @@ const arrowRange = (start: number, end: number, step: number = 1) =>
 const Alphabet = arrowRange('A'.charCodeAt(0), 'Z'.charCodeAt(0)).map(i => String.fromCharCode(i));
 
 // 1~15 行
-const ROW_NAMES = Array(ROWS.value + 1)
+const ROW_NUMBERS = Array(ROWS.value + 1)
   .fill(0)
   .map((_, index) => index + 1);
 // A~O 列
-const COLUMN_NAMES = Alphabet.slice(0, COLUMNS.value + 1);
+const COLUMN_NUMBERS = Alphabet.slice(0, COLUMNS.value + 1);
 </script>
 
 <template>
@@ -41,20 +41,20 @@ const COLUMN_NAMES = Alphabet.slice(0, COLUMNS.value + 1);
     <div class="bottom-left absolute"></div>
     <div class="bottom-right absolute"></div>
 
-    <!-- 航索引 A-O 自左向右排列-->
+    <!-- 列索引 A-O 自左向右排列-->
     <div
-      v-for="(column, columnIndex) in COLUMN_NAMES"
+      v-for="(column, columnIndex) in COLUMN_NUMBERS"
       :key="column"
-      class="chess-column-label absolute w-[20px] h-[20px] flex-center bottom-[60px] c-white b b-solid b-red rounded-[50%]"
+      class="chess-column-label absolute w-[25px] h-[25px] flex-center bottom-[60px] c-white b b-solid b-red rounded-[50%]"
       :style="{left: `${(columnIndex + 1) * 100 - 10}px`}"
     >
       {{ column }}
     </div>
     <!-- 行索引 1-15 自下而上排列-->
     <div
-      v-for="(row, rowIndex) in ROW_NAMES"
+      v-for="(row, rowIndex) in ROW_NUMBERS"
       :key="row"
-      class="chess-row-label absolute w-[20px] h-[20px] flex-center right-[60px] c-white b b-solid b-red rounded-[50%]"
+      class="chess-row-label absolute w-[25px] h-[25px] flex-center right-[60px] c-white b b-solid b-red rounded-[50%]"
       :style="{bottom: `${(rowIndex + 1) * 100 - 10}px`}"
     >
       {{ row }}
